@@ -124,7 +124,7 @@ func writeLogFile(writeLogLevel int, logger logLogger, logStr string) {
 	if globalFormatLogf == nil {
 		return
 	}
-	flagLogStr := globalFormatLogf(writeLogLevel, 4, "viphxin mgo log %s", logStr)
+	flagLogStr := globalFormatLogf(writeLogLevel, 4, "%s", logStr)
 
 	if writeLogLevel >= LOG_ERROR && _openSentry {
 		raven.CaptureMessage(fmt.Sprintf("%s%s", _prefix, flagLogStr[len(error_str):]), nil)
